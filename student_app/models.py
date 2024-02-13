@@ -17,7 +17,7 @@ class Question(models.Model):
 
 class Answer(models.Model):
     body = models.CharField(max_length=1000)
-    question_id = models.ForeignKey(Question)
+    question_id = models.ForeignKey(Question, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     @property
