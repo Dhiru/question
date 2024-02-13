@@ -8,7 +8,7 @@ class User(models.Model):
 class Question(models.Model):
     title = models.CharField(max_length=100)
     private = models.BooleanField(default=False)
-    user = models.ForeignKey(User)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     @property
     def host(self):
@@ -18,7 +18,7 @@ class Question(models.Model):
 class Answer(models.Model):
     body = models.CharField(max_length=1000)
     question_id = models.ForeignKey(Question)
-    user = models.ForeignKey(User)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     @property
     def host(self):
